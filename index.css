@@ -65,7 +65,7 @@ header {
 .C {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Three equal columns */
-    gap: 10px; /* Space between boxes */
+    gap: 50px; /* Space between boxes */
     justify-items: center; /* Center items horizontally */
     align-items: center; /* Center items vertically */
     animation: slideIn 1s ease-in; /* Added slide-in effect */
