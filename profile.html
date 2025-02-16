@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Fredro</title>
+    <link rel="stylesheet" href="profile.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+    </style>
+
+</head>
+<body>
+    <header>
+        <h1>User Profile</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="profile.html">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Welcome to Your Profile</h2>
+        <p>Here you can manage your franchise listings and view your activity.</p>
+        <h3>Your Franchise Listings</h3>
+        <ul>
+            <li>Franchise 1: <a href="franchise1-details.html">View Details</a></li>
+            <li>Franchise 2: <a href="franchise2-details.html">View Details</a></li>
+            <li>Franchise 3: <a href="franchise3-details.html">View Details</a></li>
+        </ul>
+        <h3>Profile Information</h3>
+        <form class="profile-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <br>
+            <label for="number">Number:</label>
+            <input type="text" id="number" name="number" required>
+            <br>
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" required>
+            <br>
+            <button type="submit">Register</button>
+        </form>
+
+        <style>
+            .profile-form label {
+                margin-bottom: 5px; /* Add gap below labels */
+                display: block; /* Make labels block elements */
+            }
+            .profile-form input {
+                margin-bottom: 15px; /* Add gap below inputs */
+                width: 100%; /* Make inputs full width */
+                padding: 8px; /* Add padding to inputs */
+                border: 1px solid #ccc; /* Add border to inputs */
+                border-radius: 4px; /* Add rounded corners to inputs */
+            }
+        </style>
+
+        <h3>Your Franchise Listings</h3>
+
+        <p>You have listed 3 franchises and received 5 inquiries in the last month.</p>
+        <button onclick="location.href='edit-profile.html'">Edit Profile</button>
+
+    </main>
+    <footer>
+        <section id="contact">
+            <h2>Contact & Support</h2>
+            <p>Contact form for inquiries.</p>
+        </section>
+        <p>&copy; 2025 Fredro. All rights reserved.</p>
+    </footer>
+</body>
+</html>

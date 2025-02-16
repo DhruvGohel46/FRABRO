@@ -1,0 +1,113 @@
+/* Styles specific to index.html */
+nav {
+    background-color: #007bff; /* Background color for the nav */
+    padding: 10px; /* Padding for the nav */
+}
+
+nav ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center items in the nav */
+}
+
+nav ul li {
+    margin-right: 20px; /* Space between nav items */
+}
+
+nav ul li a {
+    color: white; /* Text color for links */
+    text-decoration: none; /* Remove underline from links */
+}
+
+html, body {
+    height: 100%; /* Ensure the body takes full height */
+    display: flex; /* Use flexbox layout */
+    flex-direction: column; /* Stack children vertically */
+}
+
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    animation: fadeIn 1s ease-in; /* Added fade-in effect */
+}
+
+footer {
+    background-color: #007bff; /* Footer background color */
+    color: white; /* Footer text color */
+    text-align: center; /* Center text in footer */
+    padding: 20px; /* Increase padding for better spacing */
+    margin-top: auto; /* Push footer to the bottom */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    animation: fadeIn 1s ease-in; /* Added fade-in effect */
+}
+
+.contant {
+    margin: 30px;
+}
+
+/* Styles for the grid layout */
+.C {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+    gap: 10px; /* Space between boxes */
+    justify-items: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    animation: slideIn 1s ease-in; /* Added slide-in effect */
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Styles for the original boxes */
+.C1, .C2, .C3, .C4, .C5, .C6 {
+    display: flex; /* Use flexbox layout */
+    animation: slideIn 1s ease-in; /* Added slide-in effect */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: flex-start; /* Align items to the start */
+    width: 30vw; /* Set a fixed width for all boxes */
+    height: 30vh; /* Set a fixed height for all boxes */
+    padding: 10px; /* Add padding for better spacing */
+    margin: 10px; /* Add margin for spacing between boxes */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+}
+
+.C1 img, .C2 img, .C3 img, .C4 img, .C5 img, .C6 img {
+    width: 100%; /* Ensure the image takes the full width of the box */
+    height: 100%; /* Ensure the image takes the full height of the box */
+    object-fit: contain; /* Maintain aspect ratio while fitting the box */
+    border: 2px solid #ccc; /* Keep the border around the images */
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+}
+
+.C1, .C2, .C3, .C4, .C5, .C6 {
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.C1:hover, .C2:hover, .C3:hover, .C4:hover, .C5:hover, .C6:hover {
+    transform: scale(1.1); /* Scale up on hover */
+}
