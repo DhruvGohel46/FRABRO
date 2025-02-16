@@ -12,12 +12,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.createElement('button');
     menuToggle.className = 'mobile-menu-toggle';
     menuToggle.innerHTML = '☰';
+    menuToggle.setAttribute('aria-label', 'Toggle navigation menu');
     menuToggle.addEventListener('click', function() {
         const nav = document.querySelector('nav ul');
         if (nav) {
-            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+            nav.classList.toggle('show');
+            this.classList.toggle('active');
         }
     });
+
     
     const nav = document.querySelector('nav');
     if (nav) {
@@ -33,12 +36,13 @@ function checkScreenSize() {
     const nav = document.querySelector('nav ul');
     if (nav) {
         if (isMobile) {
-            nav.style.display = 'none';
+            nav.classList.remove('show');
         } else {
-            nav.style.display = 'flex';
+            nav.classList.add('show');
         }
     }
 }
+
 
 // Function to handle form submission on profile page
 
@@ -46,15 +50,32 @@ document.addEventListener('DOMContentLoaded', function() {
     const profileForm = document.querySelector('.profile-form');
     if (profileForm) {
         profileForm.addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent default form submission
-            const name = document.getElementById('name').value;
-            const number = document.getElementById('number').value;
-            const city = document.getElementById('city').value;
+            event.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value.trim();
+            const number = document.getElementById('number').value.trim();
+            const city = document.getElementById('city').value.trim();
 
-            // Here you would typically send the data to the server
-            console.log('Name:', name);
-            console.log('Number:', number);
-            console.log('City:', city);
+            // Validate inputs
+            if (!name || !number || !city) {
+                alert('Please fill in all fields');
+                return;
+            }
+
+            // Show loading state
+            const submitBtn = profileForm.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Saving...';
+
+            // Simulate server request
+            setTimeout(() => {
+                console.log('Profile updated:', { name, number, city });
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Update Profile';
+                alert('Profile updated successfully!');
+            }, 1000);
+
 
             // Example of an AJAX request to send data to the server
             // fetch('submit-profile.php', {

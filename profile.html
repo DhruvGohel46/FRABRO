@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manage your FRABRO profile and franchise listings">
     <title>Profile - FRABRO</title>
+
 
     <link rel="stylesheet" href="profile.css">
     <style>
@@ -16,13 +18,14 @@
 <body>
     <header>
         <h1>User Profile</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="profile.html">Profile</a></li>
-                <li><a href="about.html">About Us</a></li>
+        <nav aria-label="Profile navigation">
+            <ul role="menubar">
+                <li role="menuitem"><a href="index.html">Home</a></li>
+                <li role="menuitem"><a href="profile.html">Profile</a></li>
+                <li role="menuitem"><a href="about.html">About Us</a></li>
             </ul>
         </nav>
+
     </header>
     <main>
         <h2>Welcome to Your Profile</h2>
@@ -34,40 +37,24 @@
             <li>Franchise 3: <a href="franchise3-details.html">View Details</a></li>
         </ul>
         <h3>Profile Information</h3>
-        <form class="profile-form">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            <br>
-            <label for="number">Number:</label>
-            <input type="text" id="number" name="number" required>
-            <br>
-            <label for="city">City:</label>
-            <input type="text" id="city" name="city" required>
-            <br>
-            <button type="submit">Register</button>
+        <form class="profile-form" aria-label="Profile information form">
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required aria-required="true">
+            </div>
+            <div class="form-group">
+                <label for="number">Phone Number:</label>
+                <input type="tel" id="number" name="number" required aria-required="true">
+            </div>
+            <div class="form-group">
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" required aria-required="true">
+            </div>
+            <button type="submit" aria-label="Submit profile information">Update Profile</button>
         </form>
 
-        <style>
-            .profile-form label {
-                margin-bottom: 5px;
-                /* Add gap below labels */
-                display: block;
-                /* Make labels block elements */
-            }
 
-            .profile-form input {
-                margin-bottom: 15px;
-                /* Add gap below inputs */
-                width: 100%;
-                /* Make inputs full width */
-                padding: 8px;
-                /* Add padding to inputs */
-                border: 1px solid #ccc;
-                /* Add border to inputs */
-                border-radius: 4px;
-                /* Add rounded corners to inputs */
-            }
-        </style>
+
 
         <h3>Your Franchise Listings</h3>
 
