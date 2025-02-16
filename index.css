@@ -2,9 +2,14 @@
 nav {
     background-color: #007bff; /* Background color for the nav */
     padding: 10px; /* Padding for the nav */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center items vertically */
+   
 }
 
-nav ul {
+nav ul { 
+    gap: 20px;
     list-style-type: none; /* Remove bullet points */
     padding: 0; /* Remove padding */
     margin: 0; /* Remove margin */
