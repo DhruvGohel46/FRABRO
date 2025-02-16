@@ -1,4 +1,5 @@
-// JavaScript code for Fredro
+// JavaScript code for FRABRO
+
 
 // Function to handle button clicks for navigation
 function navigateTo(page) {
