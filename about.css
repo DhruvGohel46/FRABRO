@@ -3,17 +3,21 @@ body {
     background-color: #ffffff;
     font-family: Arial, sans-serif;
     animation: fadeIn 1s ease-in;
-    /* Added fade-in effect */
+}
+
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px;
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 header {
@@ -26,7 +30,6 @@ header {
 main {
     padding: 20px;
     animation: slideIn 1s ease-in;
-    /* Added slide-in effect */
 }
 
 @keyframes slideIn {
@@ -34,7 +37,6 @@ main {
         transform: translateY(20px);
         opacity: 0;
     }
-
     to {
         transform: translateY(0);
         opacity: 1;
@@ -43,44 +45,70 @@ main {
 
 h2 {
     color: #343a40;
-    margin: 20px 0; /* Add margin for consistent spacing */
+    margin: 20px 0;
 }
 
 nav {
     background-color: #007bff;
-    /* Background color for the nav */
     padding: 10px;
-    /* Padding for the nav */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
 }
 
 nav ul {
     list-style-type: none;
-    /* Remove bullet points */
     padding: 0;
-    /* Remove padding */
     margin: 0;
-    /* Remove margin */
     display: flex;
-    /* Use flexbox for layout */
     justify-content: center;
-    /* Center items in the nav */
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: block;
+    }
+    
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #007bff;
+        padding: 10px;
+    }
+    
+    nav ul.show {
+        display: flex;
+    }
+    
+    nav ul li {
+        margin: 10px 0;
+    }
 }
 
 nav ul li {
     margin-right: 20px;
-    /* Space between nav items */
 }
 
 nav ul li a {
     color: white;
-    /* Text color for links */
     text-decoration: none;
-    /* Remove underline from links */
 }
 
 footer {
     background-color: #007bff;
     color: white;
-    padding: 20px; /* Increase padding for better spacing */
-    margin-top: auto; /* Push footer to the bottom */
+    padding: 20px;
+    margin-top: auto;
+}
+
+@media (max-width: 768px) {
+    footer {
+        padding: 15px;
+        font-size: 14px;
+    }
 }
