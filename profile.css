@@ -1,19 +1,43 @@
 /* Styles specific to profile.html */
+.logo-container {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.logo {
+    height: 50px;
+    width: auto;
+}
+main{
+    color: rgb(0, 0, 0);
+}
+
+/* Base mobile styles */
 body {
-    background-image: url('bg.jpg');
+  
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
-    font-family: Arial, sans-serif;
+    font-family: 'Baloo Bhai 2', 'Kanit', 'Merriweather', Arial, sans-serif;
     animation: fadeIn 1s ease-in;
+    padding: 0;
+    margin: 0;
     min-height: 100vh;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+.container {
+    width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
 }
 
 .mobile-menu-toggle {
     display: none;
     background: none;
     border: none;
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 24px;
     cursor: pointer;
     padding: 5px;
@@ -26,14 +50,31 @@ body {
 
 header {
     background-color: #007bff;
-    color: white;
-    padding: 20px;
+    color: rgb(0, 0, 0);
+    padding: 15px;
     text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+@media (min-width: 768px) {
+    header {
+        padding: 20px;
+    }
 }
 
 main {
     padding: 20px;
     animation: slideIn 1s ease-in;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    main {
+        padding: 15px;
+    }
 }
 
 @keyframes slideIn {
@@ -48,18 +89,18 @@ main {
 }
 
 h2 {
-    color: #343a40;
+    color: #000000;
     margin: 20px 0;
 }
 
 h3 {
-    color: #343a40;
+    color: #000000;
     margin: 15px 0;
 }
 
 nav {
     background-color: #007bff;
-    padding: 10px;
+    padding: 5px; /* Decreased from 10px */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -144,6 +185,15 @@ footer {
 
 .form-group {
     margin-bottom: 20px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 768px) {
+    .form-group {
+        margin-bottom: 15px;
+    }
 }
 
 .form-group label {
@@ -172,7 +222,18 @@ button {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin: 20px auto;
+}
+
+@media (min-width: 768px) {
+    button {
+        width: auto;
+        padding: 15px 30px;
+    }
 }
 
 button:hover {

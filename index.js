@@ -1,34 +1,51 @@
-// JavaScript code for Fredro
+// JavaScript code for FRABRO
 
-// Smooth scroll functionality
+// Enhanced smooth scroll functionality
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+            // Focus on target for accessibility
+            target.setAttribute('tabindex', '-1');
+            target.focus();
+        }
     });
 });
 
-// Mobile layout handling
+
+// Enhanced mobile layout handling
 document.addEventListener('DOMContentLoaded', function() {
     // Check screen size on load
     checkScreenSize();
     
-    // Add event listener for window resize
-    window.addEventListener('resize', checkScreenSize);
+    // Add event listener for window resize with debounce
+    let resizeTimeout;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(checkScreenSize, 100);
+    });
     
-    // Add mobile menu toggle with animation
+    // Add accessible mobile menu toggle
     const menuToggle = document.createElement('button');
     menuToggle.className = 'mobile-menu-toggle';
     menuToggle.innerHTML = '☰';
+    menuToggle.setAttribute('aria-label', 'Toggle navigation menu');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    
     menuToggle.addEventListener('click', function() {
         const nav = document.querySelector('nav ul');
         if (nav) {
-            nav.classList.toggle('show');
+            const isExpanded = nav.classList.toggle('show');
             this.classList.toggle('active');
+            this.setAttribute('aria-expanded', isExpanded);
         }
     });
+
 
     
     const nav = document.querySelector('nav');
@@ -43,22 +60,43 @@ function checkScreenSize() {
     
     // Toggle mobile menu visibility
     const nav = document.querySelector('nav ul');
-    if (nav) {
+    const menuToggle = document.querySelector('.mobile-menu-toggle');
+    
+    if (nav && menuToggle) {
         if (isMobile) {
             nav.classList.remove('show');
+            menuToggle.setAttribute('aria-expanded', 'false');
         } else {
             nav.classList.add('show');
+            menuToggle.setAttribute('aria-expanded', 'true');
         }
     }
+    
+    // Update body padding to account for fixed header
+    const headerHeight = document.querySelector('header')?.offsetHeight || 0;
+    document.body.style.paddingTop = `${headerHeight}px`;
 }
 
-// Add click handlers for category cards
+
+// Enhanced click handlers for category cards
 document.querySelectorAll('.C > div').forEach(card => {
     card.addEventListener('click', function() {
-        const category = this.querySelector('.contant').textContent.trim();
-        window.location.href = `category.html?type=${encodeURIComponent(category)}`;
+        const category = this.querySelector('.contant')?.textContent.trim();
+        if (category) {
+            window.location.href = `category.html?type=${encodeURIComponent(category)}`;
+        }
+    });
+    
+    // Add keyboard accessibility
+    card.setAttribute('tabindex', '0');
+    card.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.click();
+        }
     });
 });
+
 
 
 // Function to handle button clicks for navigation

@@ -1,11 +1,26 @@
 /* Styles specific to index.html */
+.logo-container {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.logo {
+    height: 50px;
+    width: auto;
+}
+
 nav {
     background-color: #007bff;
-    padding: 10px;
+    padding: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
     width: 100%;
 }
 
@@ -66,18 +81,26 @@ html, body {
     height: 100vh;
     display: flex;
     flex-direction: column;
+    margin: 0;
+    padding: 0;
 }
 
+/* Base mobile styles */
 body {
-    background-image: url('bg.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    font-family: 'Baloo Bhai 2', 'Kanit', 'Merriweather', Arial, sans-serif;
     animation: fadeIn 1s ease-in;
-    padding: 0;
-    margin: 0;
     min-height: 100vh;
+    line-height: 1.6;
+    font-size: 16px;
+    padding-top: 60px; /* Added to account for fixed navbar */
+}
+
+/* Mobile-first container */
+.container {
+    width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
 }
 
 @keyframes fadeIn {
@@ -88,49 +111,58 @@ body {
 header {
     background-color: #007bff;
     color: white;
-    padding: 20px;
+    padding: 15px;
     animation: fadeIn 1s ease-in;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+@media (min-width: 768px) {
+    header {
+        padding: 20px;
+    }
 }
 
 .contant {
-    margin: 30px;
+    margin: 0;
 }
 
 /* Grid layout */
 .C {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 50px;
+    grid-template-columns: 1fr;
+    gap: 30px;
     justify-items: center;
     align-items: center;
     animation: slideIn 1s ease-in;
-    height: 110vh;
+    padding: 20px 0;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
     .C {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    
-    .C1, .C2, .C3, .C4, .C5, .C6 {
-        width: 80%;
-        height: auto;
-        margin: 10px auto;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
     }
 }
 
 @media (min-width: 1024px) {
     .C {
         grid-template-columns: repeat(3, 1fr);
-        gap: 40px;
-        padding: 20px;
+        gap: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .C {
+        grid-template-columns: 1fr;
+        gap: 30px;
     }
     
     .C1, .C2, .C3, .C4, .C5, .C6 {
-        width: 100%;
-        height: 35vh;
-        margin: 0;
+        width: 80%;
+        height: auto;
+        margin: 10px auto;
     }
 }
 
@@ -152,13 +184,20 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 30vh;
-    padding: 15px;
-    margin: 0px;
+    width: 100%;
+    min-height: 200px;
+    padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
     background-color: white;
     border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+    .C1, .C2, .C3, .C4, .C5, .C6 {
+        min-height: 250px;
+    }
 }
 
 .C1:hover, .C2:hover, .C3:hover, .C4:hover, .C5:hover, .C6:hover {
@@ -168,8 +207,8 @@ header {
 }
 
 .C1 img, .C2 img, .C3 img, .C4 img, .C5 img, .C6 img {
-    width: 100%;
-    height: 100%;
+    width: 200px;
+    height: 200px;
     object-fit: contain;
     border: 2px solid #ccc;
     box-sizing: border-box;
@@ -180,11 +219,20 @@ footer {
     color: white;
     text-align: center;
     padding: 20px;
-    height: fit-content;
-    margin: 0;
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
     gap: 15px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+footer a:hover {
+    opacity: 0.8;
 }
 
 @media (max-width: 768px) {
